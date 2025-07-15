@@ -57,7 +57,7 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" v-show="open" class="md:hidden bg-white border-t border-gray-200"
+        <div id="mobile-menu" v-show="open" class="md:hidden p-4 bg-var(--clr-custom-green-400)] border-t border-var(--clr-custom-green-200)]"
             :aria-hidden="(!open).toString()">
             <Link href="/" class="text-white block px-4 py-2 text-gray-700 hover:bg-gray-100">
             Home

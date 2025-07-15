@@ -1,12 +1,12 @@
 <?php
-// app/Models/Tag.php
+// app/Models/Category.php
 
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Tag extends Model
+class Category extends Model
 {
     use HasFactory;
 
@@ -14,6 +14,6 @@ class Tag extends Model
 
     public function faqs()
     {
-        return $this->belongsToMany(Faq::class);
+        return $this->hasMany(Faq::class);
     }
 }
