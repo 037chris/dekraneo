@@ -4,7 +4,7 @@
         scrolledPastMain ? 'bg-[var(--clr-custom-green-400)]' : 'bg-[var(--clr-custom-green-400)]/60'
     ]" role="navigation" aria-label="Hauptnavigation">
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-[105px]">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 flex items-center justify-between h-[105px]">
             <!-- Logo / Brand als Inertia-Link -->
             <div class="flex-shrink-0">
                 <Link href="/" aria-label="Zur Startseite" class="inline-block">
