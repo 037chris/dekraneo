@@ -1,7 +1,9 @@
 <script setup>
 import { Link, Head } from '@inertiajs/vue3';
 import Navbar from './Navbar.vue'
+import Footer from './Footer.vue'
 import Searchbar from '../Components/Searchbar.vue'
+
 
 const props = defineProps({
     /** Überschrift */
@@ -34,9 +36,7 @@ const props = defineProps({
         <main>
             <slot />
         </main>
-        <footer>
-            <span>Footer</span>
-        </footer>
+        <Footer />
     </body>
 
 </template>

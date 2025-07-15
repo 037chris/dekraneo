@@ -23,7 +23,7 @@
                 </svg>
             </span>
         </button>
-        <div v-if="open" class="px-6 pb-6 border-t border-transparent">
+        <div v-if="open" class="px-6 pb-6a border-t border-transparent">
             <p class="text-xl text-[var(--clr-gray-100)]">
                 {{ answer }}
             </p>
