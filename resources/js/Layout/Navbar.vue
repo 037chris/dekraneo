@@ -5,13 +5,12 @@
     ]" role="navigation" aria-label="Hauptnavigation">
 
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 flex items-center justify-between h-[105px]">
-            <!-- Logo / Brand als Inertia-Link -->
+            <!-- Logo -->
             <div class="flex-shrink-0">
                 <Link href="/" aria-label="Zur Startseite" class="inline-block">
                 <img :src="logo" alt="DEKRA Logo" class="h-[45px] w-auto" />
                 </Link>
             </div>
-
             <!-- Desktop-Navi -->
             <div class="hidden md:flex space-x-8 text-white">
                 <Link href="/" :class="[
@@ -47,7 +46,7 @@
                         fill="white" />
                 </svg>
 
-                <!-- Close-Icon bleibt unverändert -->
+                <!-- Close-Icon  -->
                 <svg v-else class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -57,15 +56,25 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" v-show="open" class="md:hidden p-4 bg-var(--clr-custom-green-400)] border-t border-var(--clr-custom-green-200)]"
+        <div id="mobile-menu" v-show="open"
+            class="md:hidden p-4 bg-[var(--clr-custom-green-400)] border-t border-[var(--clr-custom-green-200)]"
             :aria-hidden="(!open).toString()">
-            <Link href="/" class="text-white block px-4 py-2 text-gray-700 hover:bg-gray-100">
+            <Link href="/" :class="[
+                'block px-4 py-2 text-white hover:cursor-pointer hover:text-[var(--clr-custom-green-200)]',
+                isActive('Home') ? '!text-[var(--clr-custom-green-200)] font-bold' : ''
+            ]">
             Home
             </Link>
-            <Link href="/tags" class="text-white block px-4 py-2 text-gray-700 hover:bg-gray-100">
+            <Link href="/tags" :class="[
+                'block px-4 py-2 text-white hover:cursor-pointer hover:text-[var(--clr-custom-green-200)]',
+                isActive('Tags') ? '!text-[var(--clr-custom-green-200)] font-bold' : ''
+            ]">
             Tags
             </Link>
-            <Link href="/login" class="text-white block px-4 py-2 text-gray-700 hover:bg-gray-100">
+            <Link href="/login" :class="[
+                'block px-4 py-2 text-white hover:cursor-pointer hover:text-[var(--clr-custom-green-200)]',
+                isActive('Login') ? '!text-[var(--clr-custom-green-200)] font-bold' : ''
+            ]">
             Login
             </Link>
         </div>
@@ -74,7 +83,7 @@
 
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue'
-import { usePage } from '@inertiajs/vue3'
+import { usePage, Link } from '@inertiajs/vue3'
 import logo from '@/assets/dekra-logo-white.svg'
 
 const open = ref(false)

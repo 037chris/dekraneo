@@ -18,7 +18,7 @@ const props = defineProps({
 
     <Head>
         <meta head-key="description" name="description" content="default description">
-        <title>Placeholder</title>
+        <title>| {{ title }}</title>
     </Head>
 
     <body>
