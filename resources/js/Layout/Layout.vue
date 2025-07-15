@@ -1,5 +1,15 @@
 <script setup>
 import { Link, Head } from '@inertiajs/vue3';
+import Navbar from './Navbar.vue'
+import Searchbar from '../Components/Searchbar.vue'
+
+const props = defineProps({
+    /** Überschrift */
+    title: { type: String, required: true },
+    /** Beschreibungstext */
+    text: { type: String, default: '' },
+})
+
 </script>
 
 <template>
@@ -10,21 +20,16 @@ import { Link, Head } from '@inertiajs/vue3';
     </Head>
 
     <body>
-        <header>
-            <Link href="#" title=""><img src="" alt=""></Link>
-            <nav>
-                <ul>
-                    <li>
-                        <Link href="/" title="">FAQ</Link>
-                    </li>
-                    <li>
-                        <Link href="/tags" title="">Tags</Link>
-                    </li>
-                    <li>
-                        <Link href="#" title="">Login</Link>
-                    </li>
-                </ul>
-            </nav>
+        <header class="relative lg:pt-[105px] lg:pb-[95px] bg-[var(--clr-custom-green-600)] place-items-center">
+            <Navbar />
+            <div class="grid text-white max-w-[1200px]">
+                <div class="place-items-center py-8 px-4 md:px-16 mt-[85px] lg:mt-[40px] header-design">
+                    <h1 class="text-3xl md:text-4xl lg:text-5xl tracking-wider font-light mb-2 z-index-10">{{ title }}</h1>
+                    <p class="text-center font-light md:text-lg max-w-[900px] relative z-index-10">{{ text }}</p>
+                    <!-- <Searchbar /> -->
+                </div>
+            </div>
+
         </header>
         <main>
             <slot />

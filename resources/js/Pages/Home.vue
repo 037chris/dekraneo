@@ -2,6 +2,11 @@
     <Head title="| FAQ">
         <meta head-key="description" content="Home desc is following">
     </Head>
+
+    <Head title="| FAQ">
+        <meta head-key="description" content="Home desc is following">
+    </Head>
+
     <div class="max-w-3xl mx-auto p-4">
         <h1 class="text-3xl font-bold mb-6">FAQ</h1>
         <div v-for="faq in faqs" :key="faq.id" class="mb-4">

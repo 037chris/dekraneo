@@ -1,0 +1,14 @@
+Anmerkungen zur Umsetzung
+
+Ich habe versucht, so viel wie möglich gemäß Aufgabenstellung umzusetzen. Zur Zeit schreibe ich meine Abschlussarbeit. Es wäre schön, wenn das berücksichtigt werden kann.
+
+Da zusätzliche Hinweise erwünscht waren: ein Figma‑File mit den Original-Layouts wäre sehr hilfreich gewesen.
+
+- Abstände (Margin/Padding) lassen sich ohne exakte Werte schwer reproduzieren.
+- Border‑Radius in verschiedenen Komponenten (Buttons, Input‑Felder, Cards) lässt sich nur grob schätzen.
+- Schriftschnitte (Light, Regular, Bold) und Letter‑Spacing konnten ohne Specs nicht exakt angepasst werden.
+- Farben sind unklar:
+    Das im Design gezeigte Weiß hat einen leichten Graustich.
+    Die in der Navigation verwendeten Grün‑Töne und deren Opacity sind nicht herleitbar
+    Die Farben der colors.css stimmten nicht mit den Farben des Designs überein
+

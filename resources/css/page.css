@@ -1,0 +1,23 @@
+/* resources/css/fonts.css
+Individual page styles
+*/
+
+/* header designs -> wegen SEO in Styles und nicht mit Tailwind */
+.header-design {
+    position: relative;
+}
+
+
+.header-design::after {
+    content: "";
+    position: absolute;
+    top: -70px;
+    left: -180px;
+    width: 130px;
+    height: 130px;
+    transform: rotate(-2deg);
+    background-color: var(--clr-custom-header-green-600);
+    mask: url('/assets/triangle-bright-green.svg') no-repeat center/contain;
+    -webkit-mask: url('/assets/triangle-bright-green.svg') no-repeat center/contain;
+    z-index: 0;
+}
