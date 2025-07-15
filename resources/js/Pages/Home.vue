@@ -1,5 +1,5 @@
 <template>
-
+    
     <Head :title="`${title} | FAQ`">
         <meta head-key="description" :content="text" />
     </Head>
@@ -7,19 +7,31 @@
     <div class="max-w-6xl mx-auto p-4 space-y-4">
 
         <!-- Kategorie-Buttons -->
-        <div class="mb-6 flex flex-wrap gap-2">
-            <button v-for="cat in categories" :key="cat" @click="selected = cat" :class="[
-                'px-4 py-2 rounded-full transition cursor-pointer',
-                selected === cat
-                    ? 'bg-[var(--clr-custom-green-400)] text-white font-bold'
-                    : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-            ]">
+        <div class="mb-6 flex flex-wrap gap-2 lg:gap-6 justify-between">
+            <button v-for="cat in categories" :key="cat" @click="selected = cat"
+                class="relative text-left text-xl px-6 py-11 rounded-[25px] transition cursor-pointer overflow-hidden w-[48%] md:flex-1 shadow-lg border border-white"
+                :class="selected === cat
+                    ? 'bg-[var(--clr-custom-green-400)] text-[var(--clr-custom-green-200)] !border-[var(--clr-custom-green-200)]'
+                    : 'bg-[var(--clr-white)] border-[var(--clr-custom-green-200)] hover:bg-[var(--clr-custom-green-400)] hover:text-[var(--clr-custom-green-200)]'">
                 {{ cat }}
+
+                <!-- badge -->
+                <span
+                    class="absolute top-[-10px] right-[-10px] h-19 w-19 bg-[var(--clr-darkgreen-100)] rounded-full flex items-center justify-center">
+                    <img v-if="cat === 'Allgemeines'" :src="allgemeines" alt="Allgemeines Icon" class="text-[var(--clr-custom-green-400)] h-10 w-10" />
+                    <img v-else-if="cat === 'Services'" :src="services" alt="Services Icon" class="text-[var(--clr-custom-green-400)] h-10 w-10" />
+                    <img v-else-if="cat === 'Medien'" :src="medien" alt="Medien Icon" class="text-[var(--clr-custom-green-400)] h-10 w-10" />
+                    <img v-else-if="cat === 'Zahlungen'" :src="zahlungen" alt="Zahlungen Icon" class="text-[var(--clr-custom-green-400)] h-10 w-10" />
+                </span>
             </button>
         </div>
 
-        <p class="text-xl font-semibold">
-            Fragen aus dem Bereich {{ selected }}
+
+
+
+
+        <p class="text-xl text-[var(--clr-custom-green-400)]">
+            Fragen aus dem Bereich <span class="font-bold">{{ selected }}</span>
         </p>
 
         <!-- Gefilterte FAQs im Accordion -->
@@ -34,8 +46,12 @@
 
 <script setup>
 import { defineProps, ref, computed } from 'vue'
-import { Link } from '@inertiajs/vue3'
 import Accordion from '@/Components/Accordion.vue'
+import allgemeines from '@/assets/icons/icon-categorie-allgemeines.svg?component'
+import medien from '@/assets/icons/icon-categorie-medien.svg?component'
+import zahlungen from '@/assets/icons/icon-categorie-payment.svg?component'
+import services from '@/assets/icons/icon-categorie-services.svg?component'
+
 
 const props = defineProps({
     categories: Array,

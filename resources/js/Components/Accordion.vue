@@ -7,12 +7,12 @@
     ]">
         <button class="w-full flex items-center justify-between px-6 py-4 cursor-pointer focus:outline-none" @click="toggle">
             <span :class="[
-                'font-semibold',
+                'font-semibold text-left',
                 open ? 'text-[var(--clr-gray-100)]' : 'text-[var(--clr-custom-green-300)]'
             ]">
                 <span class="text-lg">{{ question }}</span>
             </span>
-            <span class="inline-flex items-center justify-center h-10 w-10 rounded-full transition-colors duration-200"
+            <span class="inline-flex items-center justify-center flex-none h-10 w-10 rounded-full transition-colors duration-200"
                 :class="open
                     ? 'bg-[var(--clr-custom-green-100)]'
                     : 'bg-[var(--clr-custom-green-300)]'">
