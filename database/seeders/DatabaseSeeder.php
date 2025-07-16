@@ -22,5 +22,6 @@ class DatabaseSeeder extends Seeder
         $this->call(CategorySeeder::class);
         $this->call(TagSeeder::class);
         $this->call(FaqJsonSeeder::class);
+        $this->call(AdminUserSeeder::class);
     }
 }

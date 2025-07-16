@@ -1,6 +1,6 @@
 <template>
     
-    <Head :title="`${title} | FAQ`">
+    <Head :title="`| FAQ`">
         <meta head-key="description" :content="text" />
     </Head>
 

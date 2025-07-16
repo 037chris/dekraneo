@@ -1,8 +1,10 @@
 <script setup>
 import { Link, Head } from '@inertiajs/vue3';
+import { ref } from 'vue'
 import Navbar from './Navbar.vue'
 import Footer from './Footer.vue'
 import Searchbar from '../Components/Searchbar.vue'
+import LoginModal from '../Components/LoginModal.vue';
 
 
 const props = defineProps({
@@ -11,6 +13,9 @@ const props = defineProps({
     /** Beschreibungstext */
     text: { type: String, default: '' },
 })
+
+
+const showLogin = ref(false)
 
 </script>
 
@@ -24,6 +29,8 @@ const props = defineProps({
     <body>
         <header class="relative lg:pt-[105px] lg:pb-[95px] bg-[var(--clr-custom-green-600)] place-items-center">
             <Navbar />
+            
+
             <div class="grid text-white max-w-6xl">
                 <div class="place-items-center py-8 px-4 md:px-16 mt-[85px] lg:mt-[40px] header-design">
                     <h1 class="text-3xl md:text-4xl lg:text-5xl tracking-wider font-light mb-2 z-index-10">{{ title }}</h1>

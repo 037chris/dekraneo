@@ -27,9 +27,28 @@
                 Tags
                 </Link>
 
-                <Link href="/login" class="hover:text-[var(--clr-custom-green-200)]">
-                Login
-                </Link>
+                <!-- Login / Logout -->
+                <template v-if="$page.props.auth.user">
+                    <form @submit.prevent="logout" method="post">
+                        <!-- <button type="submit" class="hover:text-[var(--clr-custom-green-200)]">
+                            Logout
+                        </button> -->
+
+                        <Link :href="route('logout')" method="post" :class="[
+                            ' hover:text-[var(--clr-custom-green-200)]',
+                            isActive('Tags') ? 'font-bold text-[var(--clr-custom-green-200)]' : ''
+                        ]">
+                        Logout
+                        </Link>
+                    </form>
+                </template>
+                <template v-else>
+                    <button class="hover:text-[var(--clr-custom-green-200)]" @click="showLogin = true">
+                        Login
+                    </button>
+                </template>
+
+                <LoginModal v-model:show="showLogin" />
             </div>
 
             <!-- Burger-Icon (Mobile) -->
@@ -85,12 +104,15 @@
 import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { usePage, Link } from '@inertiajs/vue3'
 import logo from '@/assets/dekra-logo-white.svg'
+import LoginModal from '../Components/LoginModal.vue';
 
+const showLogin = ref(false)
+console.log("showlogin " + showLogin.value)
 const open = ref(false)
 const page = usePage()
 
 // route
-console.log(page.component)
+//console.log(page.component)
 
 // Hilfsfunktion für Active-Check
 const isActive = (name) => page.component === name
