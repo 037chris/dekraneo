@@ -6,16 +6,10 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Models\Faq;
 use App\Models\Category;
+use App\Models\Tag;
+use App\Http\Controllers\TagController;
 
-// Route::get('/', function () {
-//     return Inertia::render('Welcome', [
-//         'canLogin' => Route::has('login'),
-//         'canRegister' => Route::has('register'),
-//         'laravelVersion' => Application::VERSION,
-//         'phpVersion' => PHP_VERSION,
-//     ]);
-// });
-
+// FAQ
 Route::get('/', function () {
     $faqs = Faq::with(['category'])->get();
     $categories = Category::orderBy('name')->pluck('name');
@@ -28,6 +22,13 @@ Route::get('/', function () {
     ]);
 });
 
+// TAGS
+Route::get('/tags', [TagController::class, 'index'])->name('tags.index');
+Route::middleware('auth')->group(function () {
+    Route::post('/tags', [TagController::class, 'store'])->name('tags.store');
+    Route::delete('/tags/{tag}', [TagController::class, 'destroy'])->name('tags.destroy');
+});
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -38,4 +39,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

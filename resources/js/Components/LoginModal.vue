@@ -1,6 +1,6 @@
 <template>
     <Teleport to="body">
-        <div v-if="show" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-1 flex items-center justify-center z-50"
+        <div v-if="show" class="fixed top-[100px] inset-0 bg-black/40 backdrop-blur-sm z-1 flex items-center justify-center z-50"
             @click.self="close">
             <div class="bg-[var(--clr-gray-100)] rounded-[20px] shadow-lg w-full max-w-md p-6">
                 <div class="flex items-baseline justify-between mb-4">
